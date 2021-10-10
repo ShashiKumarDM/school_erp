@@ -28,14 +28,24 @@
     - **id** : number, primary key, auto increment.
     - **name** : string, unique.
 
+* ### Subject
+    - **id** : number, primary key, auto increment.
+    - **name** : string, unique.
+    - **desc** : string, unique.
+
 * ### Standard_Sections
     - **id** : number, primary key, auto increment.
-    - **standard_id** : number, references(standard)->id.
-    - **section_id** : number, references(section)->id.
+    - **standard_id** : number, references(standard)->id, not null.
+    - **section_id** : number, references(section)->id, not null.
+
+* ### Standard_Subject
+    - **id** : number, primary key, auto increment.
+    - **standard_id** : number, references(standard)->id, not null.
+    - **subject_id** : number, references(subject)->id, not null.
 
 * ### Fee_Details
     - **id** : number, primary key, auto increment.
-    - **standard_id** : number, references(standard)->id.
+    - **standard_id** : number, references(standard)->id, not null.
     - **amount** : number.
 
 * ### Role
@@ -48,16 +58,41 @@
 
 * ### Role_Ability
     - **id** : number, primary key, auto increment.
-    - **role_id** : number, references(role)->id.
-    - **ability_id** : number, references(ability)->id.
+    - **role_id** : number, references(role)->id, not null.
+    - **ability_id** : number, references(ability)->id, not null.
 
 * ### User
     - **id** : number, primary key, auto increment.
     - **user_name** : string, unique.
     - **password** : string.
-    - **role_id** : number, references(role)->id.
+    - **role_id** : number, references(role)->id, not null.
 
 * ### User_Abilitie
     - **id** : number, primary key, auto increment.
-    - **user_id** : number, references(user)->id.
-    - **ability_id** : number, references(ability)->id.
+    - **user_id** : number, references(user)->id, not null.
+    - **ability_id** : number, references(ability)->id, not null.
+
+* ### Teacher
+    - **id** : number, primary key, auto increment.
+    - **user_id** : number, referances(user)->id, not null, unique.
+    - **name** : string.
+    - **contact_number** : number.
+    - **contact_email** : string.
+    - **designation** : string.
+
+* ### Student
+    - **id** : number, primary key, auto increment.
+    - **user_id** : number, referances(user)->id, not null, unique.
+    - **standard_id** : number, referances(standard)->id, not null.
+    - **section_id** : number, referances(section)->id, not null.
+    - **name** : string.
+    - **contact_number** : number.
+    - **contact_email** : string.
+    - **address** : string.
+    - **dob** : Date.
+    - **father_name** : string.
+    - **mother_name** : string.
+    - **guardian_name** : string.
+    - **father_contact_number** : number.
+    - **mother_contact_number** : number.
+    - **guardian_contact_number** : number.
