@@ -2,20 +2,23 @@
 
 ## Tables
 
-1. Students
-2. Teachers
-3. Users
-4. Standard
-5. Section
-6. Subjects
-7. Fee_Details
-8. Student_Fees_details
-9. Payments
-10. Notes
-11. Live_Classes
-12. Roles
-13. Abilities
-14. Role_Abilities
+1. Standard
+2. Section
+3. Subject
+4. Standard_Sections
+5. Standard_Subject
+6. Fee_Details
+7. Role
+8. Ability
+9. Role_Ability
+10. User
+11. User_Ability
+12. Teacher
+13. Student
+14. Student_Fee_details
+15. Student_Payment_details
+16. Notes
+17. Online_class
 
 
 ## Table Attributes and Relations
@@ -69,7 +72,7 @@
     - **password** : string.
     - **role_id** : number, references(role)->id, not null.
 
-* ### User_Abilitie
+* ### User_Ability
     - **id** : number, primary key, auto increment.
     - **user_id** : number, references(user)->id, not null.
     - **ability_id** : number, references(ability)->id, not null.
