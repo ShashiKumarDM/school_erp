@@ -20,6 +20,8 @@
 
 ## Table Attributes and Relations
 
+>All tables will have created_at and updated_at attributes as Date Time type.
+
 * ### Standard
     - **id** : number, primary key, auto increment.
     - **name** : string, unique.
@@ -96,3 +98,33 @@
     - **father_contact_number** : number.
     - **mother_contact_number** : number.
     - **guardian_contact_number** : number.
+
+* ### Student_Fee_details
+    - **id** : number, primary key, auto increment.
+    - **student_id** : number, referances(student)->id, not null.
+    - **title** : string.
+    - **amount** : number, not null.
+    - **ballance** : number.
+
+* ### Student_Payment_details
+    - **id** : number, primary key, auto increment.
+    - **student_fee_details_id** : number, referances(student_fee_details)->id, not null.
+    - **Amount** : number, not null.
+    - **payment_type** : string, not null.
+    - **description** : string.
+
+* ### Notes
+    - **id** : number, primary key, auto increment.
+    - **standard_id** : number, referances(standard)->id, not null.
+    - **section_id** : number, referances(section)->id, not null.
+    - **subject_id** : number, referances(subject)->id, not null.
+    - **notes_file_link** : string, not null.
+    - **video_link** : string, not null.
+
+* ### Online_class
+    - **id** : number, primary key, auto increment.
+    - **standard_id** : number, referances(standard)->id, not null.
+    - **section_id** : number, referances(section)->id, not null.
+    - **subject_id** : number, referances(subject)->id, not null.
+    - **class_date_time** : string, not null.
+    - **class_link** : string, not null.
