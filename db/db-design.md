@@ -15,10 +15,14 @@
 11. User_Ability
 12. Teacher
 13. Student
-14. Student_Fee_details
-15. Student_Payment_details
-16. Notes
-17. Online_class
+14. Student_Standard
+15. Student_Fee_details
+16. Student_Payment_details
+17. Notes
+18. Online_class
+19. Attendence
+20. Receipt
+21. Receipt_Items
 
 
 ## Table Attributes and Relations
@@ -91,6 +95,9 @@
     - **standard_id** : number, referances(standard)->id, not null.
     - **section_id** : number, referances(section)->id, not null.
     - **name** : string.
+    - **gender** : string.
+    - **sats_id** : string.
+    - **admition_id** : string.
     - **contact_number** : number.
     - **contact_email** : string.
     - **address** : string.
@@ -101,6 +108,11 @@
     - **father_contact_number** : number.
     - **mother_contact_number** : number.
     - **guardian_contact_number** : number.
+
+* ### Student_Standard 
+    - **student_id** : number, referances(studant)->id, not null.
+    - **standard_id** : number, referances(standard)->id, not null.
+    - **joining_date** : date.
 
 * ### Student_Fee_details
     - **id** : number, primary key, auto increment.
@@ -124,6 +136,13 @@
     - **notes_file_link** : string, not null.
     - **video_link** : string, not null.
 
+* ### Attendence
+    - **student_id** : number, referances(student)->id, not null.
+    - **from_time** : time.
+    - **to_time** : time.
+    - **date** : date.
+    - **subject_id** : number, referances(subjecct)->id, not null.
+
 * ### Online_class
     - **id** : number, primary key, auto increment.
     - **standard_id** : number, referances(standard)->id, not null.
@@ -131,3 +150,13 @@
     - **subject_id** : number, referances(subject)->id, not null.
     - **class_date_time** : string, not null.
     - **class_link** : string, not null.
+
+* ### Receipt
+    - **id** : number, primary key, auto increment.
+    - **payment_id** : number, referances(student_payment_details->id), not null.
+    - **total** :
+
+* ### Receipt_Items
+    - **receipt_id** : number referances(receipt)->id, not null.
+    - **title** : string.
+    - **amount** : number.
